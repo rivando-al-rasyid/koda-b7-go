@@ -15,8 +15,6 @@ func circumference(r float64) float64 {
 }
 
 func PrintCircleResult(r float64) {
-	fmt.Print("Keliling Lingkaran : ")
-	fmt.Println(circumference(r))
-	fmt.Print("Luas Lingkaran : ")
-	fmt.Println(circleArea(r))
+	fmt.Printf("Keliling Lingkaran : %.2f\n", circumference(r))
+	fmt.Printf("Luas Lingkaran : %.2f\n", circleArea(r))
 }

@@ -9,7 +9,7 @@ type DataDiri struct {
 	Nama        string
 	Foto        string
 	Email       string
-	Umur        uint8
+	Umur        int
 	NoTel       string
 	SPernikahan bool
 	Pendidikan  []DataSekolah

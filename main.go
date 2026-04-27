@@ -21,7 +21,6 @@ func main() {
 		choice := scanner.Text()
 
 		switch choice {
-
 		case "1":
 			fmt.Print("Enter radius: ")
 			scanner.Scan()
@@ -46,19 +45,73 @@ func main() {
 			codeslices.SliceManipulation()
 
 		case "4":
-			user := models.DataDiri{
-				Nama:        "vando",
-				Foto:        "profile.jpg",
-				Email:       "vando@example.com", // ← plain string, no markdown
-				Umur:        25,
-				NoTel:       "08123456789",
-				SPernikahan: false,
-				Pendidikan: []models.DataSekolah{
-					{Nama: "SMA Negeri 1", Jurusan: "IPA"},
-					{Nama: "Binus", Jurusan: "Magister (S2) Sistem Informasi"},
-				},
+			fmt.Print("Masukkan Nama: ")
+			scanner.Scan()
+			nama := strings.TrimSpace(scanner.Text())
+
+			fmt.Print("Masukkan Foto (filename): ")
+			scanner.Scan()
+			foto := strings.TrimSpace(scanner.Text())
+
+			fmt.Print("Masukkan Email: ")
+			scanner.Scan()
+			email := strings.TrimSpace(scanner.Text())
+
+			fmt.Print("Masukkan Umur: ")
+			scanner.Scan()
+			umur, _ := strconv.Atoi(strings.TrimSpace(scanner.Text()))
+
+			fmt.Print("Masukkan No Telepon: ")
+			scanner.Scan()
+			noTel := strings.TrimSpace(scanner.Text())
+
+			fmt.Print("Sudah Menikah? (true/false): ")
+			scanner.Scan()
+			sPernikahan, _ := strconv.ParseBool(strings.TrimSpace(scanner.Text()))
+
+			fmt.Print("Masukkan jumlah pendidikan: ")
+			scanner.Scan()
+			jumlahPendidikan, _ := strconv.Atoi(strings.TrimSpace(scanner.Text()))
+
+			var pendidikan []models.DataSekolah
+			for i := 0; i < jumlahPendidikan; i++ {
+				fmt.Printf("-- Pendidikan %d --\n", i+1)
+
+				fmt.Print("Nama Sekolah: ")
+				scanner.Scan()
+				namaSekolah := strings.TrimSpace(scanner.Text())
+
+				fmt.Print("Jurusan: ")
+				scanner.Scan()
+				jurusan := strings.TrimSpace(scanner.Text())
+
+				pendidikan = append(pendidikan, models.DataSekolah{
+					Nama:    namaSekolah,
+					Jurusan: jurusan,
+				})
 			}
-			fmt.Printf("Registered user: %+v\n", user)
+
+			user := models.DataDiri{
+				Nama:        nama,
+				Foto:        foto,
+				Email:       email,
+				Umur:        umur,
+				NoTel:       noTel,
+				SPernikahan: sPernikahan,
+				Pendidikan:  pendidikan,
+			}
+
+			fmt.Printf("\n=== Data Terdaftar ===\n")
+			fmt.Printf("Nama        : %s\n", user.Nama)
+			fmt.Printf("Foto        : %s\n", user.Foto)
+			fmt.Printf("Email       : %s\n", user.Email)
+			fmt.Printf("Umur        : %d\n", user.Umur)
+			fmt.Printf("No Telepon  : %s\n", user.NoTel)
+			fmt.Printf("Menikah     : %v\n", user.SPernikahan)
+			fmt.Printf("Pendidikan  :\n")
+			for i, p := range user.Pendidikan {
+				fmt.Printf("  %d. %s - %s\n", i+1, p.Nama, p.Jurusan)
+			}
 
 		default:
 			fmt.Println("Invalid choice. Please enter 1, 2, 3, or 4.")
