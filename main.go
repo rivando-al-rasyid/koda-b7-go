@@ -13,7 +13,7 @@ func circumference(r float32) float32 {
 	const diameter = float32(2) * math.Pi
 	return diameter * r
 }
-func segitiga(j int) {
+func rightAngleTriangle(j int) {
 	for i := 0; i <= j; i++ {
 		fmt.Println(strings.Repeat("*", i))
 	}
@@ -24,6 +24,7 @@ func printCircleResult(r float32) {
 	fmt.Println(circumference(r))
 	fmt.Print("Luas Lingkaran : ")
 	fmt.Println(circleArea(r))
+
 }
 
 func main() {
@@ -35,6 +36,13 @@ func main() {
 	printCircleResult(radius)
 	fmt.Print("Enter a base of right-angled triangle : ")
 	fmt.Scan(&base) // Reads input and stores it in base
-	segitiga(base)
+	rightAngleTriangle(base)
+
+	numbers := []int{50, 75, 66, 20, 32, 90}
+	front := numbers[0 : len(numbers)-3]
+	end := numbers[len(numbers)-3:]
+	result := append(front, 88)
+
+	result = append(result, end...)
 
 }
