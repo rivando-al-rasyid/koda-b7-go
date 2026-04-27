@@ -1,16 +1,25 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
+
+func circleArea(r float32) float32 {
+	return math.Pi * r * r
+}
+func circumference(r float32) float32 {
+	const diameter = float32(2) * math.Pi
+	return diameter * r
+}
+func output(r float32) {
+	fmt.Print("Keliling Lingkaran : ")
+	fmt.Println(circumference(r))
+	fmt.Print("Luas Lingkaran : ")
+	fmt.Println(circleArea(r))
+
+}
 
 func main() {
-
-}
-
-func circumference(r int) {
-	const circumference = 2 * math.Pi * r
-	return circumference
-}
-func circleArea(r int) {
-	const circleArea = 2 * math.Pi * r
-	return
+	output(2)
 }
