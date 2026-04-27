@@ -1,76 +1,32 @@
 package main
 
-import (
-	"fmt"
-	"math"
-	"strings"
-)
-
-func circleArea(r float32) float32 {
-	return math.Pi * r * r
-}
-func circumference(r float32) float32 {
-	const diameter = float32(2) * math.Pi
-	return diameter * r
-}
-func rightAngleTriangle(j int) {
-	for i := 0; i <= j; i++ {
-		fmt.Println(strings.Repeat("*", i))
-	}
-}
-
-func printCircleResult(r float32) {
-	fmt.Print("Keliling Lingkaran : ")
-	fmt.Println(circumference(r))
-	fmt.Print("Luas Lingkaran : ")
-	fmt.Println(circleArea(r))
-
-}
-
-type dataSekolah struct {
-	Nama    string
-	Jurusan string
-}
-type dataDiri struct {
-	Nama        string
-	Foto        string
-	Email       string
-	Umur        uint8
-	NoTel       string
-	SPernikahan bool
-	Pendidikan  []dataSekolah
-}
+import "fmt"
 
 func main() {
+	// Circle
 	var radius float32
-	var base int
-
 	fmt.Print("Enter a radius circle: ")
-	fmt.Scan(&radius) // Reads input and stores it in radius
+	fmt.Scan(&radius)
 	printCircleResult(radius)
+
+	// Triangle
+	var base int
 	fmt.Print("Enter a base of right-angled triangle : ")
-	fmt.Scan(&base) // Reads input and stores it in base
+	fmt.Scan(&base)
 	rightAngleTriangle(base)
 
-	numbers := []int{50, 75, 66, 20, 32, 90}
-	end := make([]int, len(numbers)-3)
-	copy(end, numbers[len(numbers)-3:])
-	front := numbers[:len(numbers)-3]
-	result := append(front, 88)
-	result = append(result, end...)
-
-	fmt.Println(result)
-
+	slices()
+	// User profile
 	user := dataDiri{
-		Nama:        "Alex Riva",
+		Nama:        "vando",
 		Foto:        "profile.jpg",
-		Email:       "alex@example.com",
+		Email:       "vando@example.com",
 		Umur:        25,
 		NoTel:       "08123456789",
 		SPernikahan: false,
 		Pendidikan: []dataSekolah{
 			{Nama: "SMA Negeri 1", Jurusan: "IPA"},
-			{Nama: "Universitas Indonesia", Jurusan: "Teknik Informatika"},
+			{Nama: "Binus", Jurusan: "Magister (S2) Sistem Informasi"},
 		},
 	}
 	fmt.Println("User Name:", user.Nama)
