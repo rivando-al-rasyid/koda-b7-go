@@ -1,8 +1,8 @@
-package main
+package codeslices
 
 import "fmt"
 
-func slices() {
+func SliceManipulation() {
 	numbers := []int{50, 75, 66, 20, 32, 90}
 	end := make([]int, len(numbers)-3)
 	copy(end, numbers[len(numbers)-3:])

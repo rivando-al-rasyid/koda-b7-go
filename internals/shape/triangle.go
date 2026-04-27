@@ -1,11 +1,11 @@
-package main
+package shape
 
 import (
 	"fmt"
 	"strings"
 )
 
-func rightAngleTriangle(j int) {
+func RightAngleTriangle(j int) {
 	for i := 0; i <= j; i++ {
 		fmt.Println(strings.Repeat("*", i))
 	}

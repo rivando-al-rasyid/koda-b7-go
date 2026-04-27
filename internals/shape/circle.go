@@ -1,4 +1,4 @@
-package main
+package shape
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ func circumference(r float32) float32 {
 	return diameter * r
 }
 
-func printCircleResult(r float32) {
+func PrintCircleResult(r float32) {
 	fmt.Print("Keliling Lingkaran : ")
 	fmt.Println(circumference(r))
 	fmt.Print("Luas Lingkaran : ")

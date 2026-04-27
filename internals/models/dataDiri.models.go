@@ -1,16 +1,16 @@
-package main
+package models
 
-type dataSekolah struct {
+type DataSekolah struct {
 	Nama    string
 	Jurusan string
 }
 
-type dataDiri struct {
+type DataDiri struct {
 	Nama        string
 	Foto        string
 	Email       string
 	Umur        uint8
 	NoTel       string
 	SPernikahan bool
-	Pendidikan  []dataSekolah
+	Pendidikan  []DataSekolah
 }

@@ -1,30 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/rivando-al-rasyid/koda-b7-go/internals/codeslices"
+	"github.com/rivando-al-rasyid/koda-b7-go/internals/models"
+	"github.com/rivando-al-rasyid/koda-b7-go/internals/shape"
+)
 
 func main() {
 	// Circle
 	var radius float32
 	fmt.Print("Enter a radius circle: ")
 	fmt.Scan(&radius)
-	printCircleResult(radius)
+	shape.PrintCircleResult(radius)
 
 	// Triangle
 	var base int
 	fmt.Print("Enter a base of right-angled triangle : ")
 	fmt.Scan(&base)
-	rightAngleTriangle(base)
+	shape.RightAngleTriangle(base)
 
-	slices()
+	codeslices.SliceManipulation()
 	// User profile
-	user := dataDiri{
+	user := models.DataDiri{
 		Nama:        "vando",
 		Foto:        "profile.jpg",
 		Email:       "vando@example.com",
 		Umur:        25,
 		NoTel:       "08123456789",
 		SPernikahan: false,
-		Pendidikan: []dataSekolah{
+		Pendidikan: []models.DataSekolah{ // ← models.DataSekolah
 			{Nama: "SMA Negeri 1", Jurusan: "IPA"},
 			{Nama: "Binus", Jurusan: "Magister (S2) Sistem Informasi"},
 		},
