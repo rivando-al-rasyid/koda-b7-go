@@ -52,24 +52,27 @@ func main() {
 	// fmt.Scan(&base) // Reads input and stores it in base
 	// rightAngleTriangle(base)
 
-	// numbers := []int{50, 75, 66, 20, 32, 90}
-	// front := numbers[0 : len(numbers)-3]
-	// end := numbers[len(numbers)-3:]
-	// result := append(front, 88)
-	// result = append(result, end...)
+	numbers := []int{50, 75, 66, 20, 32, 90}
+	end := make([]int, len(numbers)-3)
+	copy(end, numbers[len(numbers)-3:])
+	front := numbers[:len(numbers)-3]
+	result := append(front, 88)
+	result = append(result, end...)
 
-	user := dataDiri{
-		Nama:        "Alex Riva",
-		Foto:        "profile.jpg",
-		Email:       "alex@example.com",
-		Umur:        25,
-		NoTel:       "08123456789",
-		SPernikahan: false,
-		Pendidikan: []dataSekolah{
-			{Nama: "SMA Negeri 1", Jurusan: "IPA"},
-			{Nama: "Universitas Indonesia", Jurusan: "Teknik Informatika"},
-		},
-	}
-	fmt.Println("User Name:", user.Nama)
-	fmt.Println("Major at last school:", user.Pendidikan[1].Jurusan)
+	fmt.Println(result) // [50, 75, 66, 88, 20, 32, 90]
+
+	// user := dataDiri{
+	// 	Nama:        "Alex Riva",
+	// 	Foto:        "profile.jpg",
+	// 	Email:       "alex@example.com",
+	// 	Umur:        25,
+	// 	NoTel:       "08123456789",
+	// 	SPernikahan: false,
+	// 	Pendidikan: []dataSekolah{
+	// 		{Nama: "SMA Negeri 1", Jurusan: "IPA"},
+	// 		{Nama: "Universitas Indonesia", Jurusan: "Teknik Informatika"},
+	// 	},
+	// }
+	// fmt.Println("User Name:", user.Nama)
+	// fmt.Println("Major at last school:", user.Pendidikan[1].Jurusan)
 }
