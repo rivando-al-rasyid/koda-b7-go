@@ -42,15 +42,15 @@ type dataDiri struct {
 }
 
 func main() {
-	// var radius float32
-	// var base int
+	var radius float32
+	var base int
 
-	// fmt.Print("Enter a radius circle: ")
-	// fmt.Scan(&radius) // Reads input and stores it in radius
-	// printCircleResult(radius)
-	// fmt.Print("Enter a base of right-angled triangle : ")
-	// fmt.Scan(&base) // Reads input and stores it in base
-	// rightAngleTriangle(base)
+	fmt.Print("Enter a radius circle: ")
+	fmt.Scan(&radius) // Reads input and stores it in radius
+	printCircleResult(radius)
+	fmt.Print("Enter a base of right-angled triangle : ")
+	fmt.Scan(&base) // Reads input and stores it in base
+	rightAngleTriangle(base)
 
 	numbers := []int{50, 75, 66, 20, 32, 90}
 	end := make([]int, len(numbers)-3)
@@ -59,20 +59,20 @@ func main() {
 	result := append(front, 88)
 	result = append(result, end...)
 
-	fmt.Println(result) // [50, 75, 66, 88, 20, 32, 90]
+	fmt.Println(result)
 
-	// user := dataDiri{
-	// 	Nama:        "Alex Riva",
-	// 	Foto:        "profile.jpg",
-	// 	Email:       "alex@example.com",
-	// 	Umur:        25,
-	// 	NoTel:       "08123456789",
-	// 	SPernikahan: false,
-	// 	Pendidikan: []dataSekolah{
-	// 		{Nama: "SMA Negeri 1", Jurusan: "IPA"},
-	// 		{Nama: "Universitas Indonesia", Jurusan: "Teknik Informatika"},
-	// 	},
-	// }
-	// fmt.Println("User Name:", user.Nama)
-	// fmt.Println("Major at last school:", user.Pendidikan[1].Jurusan)
+	user := dataDiri{
+		Nama:        "Alex Riva",
+		Foto:        "profile.jpg",
+		Email:       "alex@example.com",
+		Umur:        25,
+		NoTel:       "08123456789",
+		SPernikahan: false,
+		Pendidikan: []dataSekolah{
+			{Nama: "SMA Negeri 1", Jurusan: "IPA"},
+			{Nama: "Universitas Indonesia", Jurusan: "Teknik Informatika"},
+		},
+	}
+	fmt.Println("User Name:", user.Nama)
+	fmt.Println("Major at last school:", user.Pendidikan[1].Jurusan)
 }
