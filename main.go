@@ -29,12 +29,12 @@ func output(r float32) {
 
 func main() {
 	var radius float32
-	var num int
+	var base int
 
-	fmt.Print("Enter a radius: ")
+	fmt.Print("Enter a radius circle: ")
 	fmt.Scan(&radius) // Reads input and stores it in radius
 	output(radius)
-	fmt.Print("Enter a number : ")
-	fmt.Scan(&num) // Reads input and stores it in num
-	segitiga(num)
+	fmt.Print("Enter a base of right-angled triangle : ")
+	fmt.Scan(&base) // Reads input and stores it in base
+	segitiga(base)
 }
