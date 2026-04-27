@@ -19,12 +19,11 @@ func segitiga(j int) {
 	}
 }
 
-func output(r float32) {
+func printCircleResult(r float32) {
 	fmt.Print("Keliling Lingkaran : ")
 	fmt.Println(circumference(r))
 	fmt.Print("Luas Lingkaran : ")
 	fmt.Println(circleArea(r))
-
 }
 
 func main() {
@@ -33,8 +32,9 @@ func main() {
 
 	fmt.Print("Enter a radius circle: ")
 	fmt.Scan(&radius) // Reads input and stores it in radius
-	output(radius)
+	printCircleResult(radius)
 	fmt.Print("Enter a base of right-angled triangle : ")
 	fmt.Scan(&base) // Reads input and stores it in base
 	segitiga(base)
+
 }
