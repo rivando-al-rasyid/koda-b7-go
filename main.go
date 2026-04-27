@@ -28,6 +28,13 @@ func output(r float32) {
 }
 
 func main() {
-	output(2)
-	segitiga(2)
+	var radius float32
+	var num int
+
+	fmt.Print("Enter a radius: ")
+	fmt.Scan(&radius) // Reads input and stores it in num
+	output(radius)
+	fmt.Print("Enter a number : ")
+	fmt.Scan(&num) // Reads input and stores it in num
+	segitiga(num)
 }
