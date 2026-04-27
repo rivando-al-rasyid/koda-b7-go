@@ -32,7 +32,7 @@ func main() {
 	var num int
 
 	fmt.Print("Enter a radius: ")
-	fmt.Scan(&radius) // Reads input and stores it in num
+	fmt.Scan(&radius) // Reads input and stores it in radius
 	output(radius)
 	fmt.Print("Enter a number : ")
 	fmt.Scan(&num) // Reads input and stores it in num
