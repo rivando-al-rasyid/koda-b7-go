@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/rivando-al-rasyid/koda-b7-go/internals/codeslices"
+	"github.com/rivando-al-rasyid/koda-b7-go/internals/localfile"
 	"github.com/rivando-al-rasyid/koda-b7-go/internals/shape"
 	"github.com/rivando-al-rasyid/koda-b7-go/internals/userdata"
 )
@@ -15,7 +16,7 @@ import (
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 
-	fmt.Printf("What do you want?\n1. Circumference and Circle Area\n2. Star Right Angle Triangle\n3. Go Slice Manipulation\n4. Register\nType a number: ")
+	fmt.Printf("What do you want?\n1. Circumference and Circle Area\n2. Star Right Angle Triangle\n3. Go Slice Manipulation\n4. Register\nType a number: \n5. read File\nCopy The Path: ")
 
 	if scanner.Scan() {
 		choice := scanner.Text()
@@ -47,6 +48,8 @@ func main() {
 		case "4":
 			userData := userdata.Inputuser(scanner)
 			userdata.Showuser(userData)
+		case "5":
+			localfile.Inputfile()
 		default:
 			fmt.Println("Invalid choice. Please enter 1, 2, 3, or 4.")
 		}
@@ -55,4 +58,5 @@ func main() {
 	if err := scanner.Err(); err != nil {
 		fmt.Println("Error reading input:", err)
 	}
+
 }
