@@ -18,7 +18,7 @@ import (
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 
-	fmt.Printf("What do you want?\n1. Circumference and Circle Area\n2. Star Right Angle Triangle\n3. Go Slice Manipulation\n4. Register\nType a number: \n5. read File\n6. greeting \nType a number:")
+	fmt.Printf("What do you want?\n1. Circumference and Circle Area\n2. Star Right Angle Triangle\n3. Go Slice Manipulation\n4. Register\nType a number: \n5. read File\n6. greeting \n7. Bank \nType a number:")
 
 	if scanner.Scan() {
 		choice := scanner.Text()
@@ -73,8 +73,26 @@ func main() {
 			p1.Greet()
 
 		case "7":
-			myTransfer := bank.Transfer{Jumlah: 100}
-			fmt.Println("Transfer amount:", myTransfer.Transaction())
+			amounts := []float64{50000, 75000, -100, 200000}
+
+			// 1. BankPayment via CheckoutSystem
+			fmt.Println("=== Bank Payment ===")
+			bankCheckout := bank.CheckoutSystem{Processor: bank.BankPayment{}}
+			bankCheckout.ExecuteCheckout(amounts)
+
+			// 2. OnlinePayment via CheckoutSystem
+			fmt.Println("\n=== Online Payment ===")
+			onlineCheckout := bank.CheckoutSystem{Processor: bank.OnlinePayment{}}
+			onlineCheckout.ExecuteCheckout(amounts)
+
+			// 3. FictivePayment - stores to slice, no print during pay
+			fmt.Println("\n=== Fictive Payment ===")
+			fictive := &bank.FictivePayment{}
+			fictiveCheckout := bank.CheckoutSystem{Processor: fictive}
+			fictiveCheckout.ExecuteCheckout(amounts)
+
+			// Display the fictive payment history slice at the end
+			fmt.Println("Fictive Payment History:", fictive.History)
 
 		default:
 			fmt.Println("Invalid choice. Please enter 1, 2, 3, or 4.")

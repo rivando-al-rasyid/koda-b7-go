@@ -5,23 +5,56 @@ import (
 	"fmt"
 )
 
-type Transaction interface {
-	Process() error
-	GetAmount() int
+// PaymentProcessor adalah interface untuk semua metode pembayaran.
+type PaymentProcessor interface {
+	Pay(amount float64) error
 }
 
-type BankTransfer struct {
-	Jumlah int
-}
+// BankPayment mengimplementasikan PaymentProcessor untuk simulasi Bank.
+type BankPayment struct{}
 
-func (b BankTransfer) GetAmount() int {
-	return b.Jumlah
-}
-
-func (b BankTransfer) Process() error {
-	if b.Jumlah <= 0 {
-		return errors.New("error: amount harus > 0")
+func (b BankPayment) Pay(amount float64) error {
+	if amount <= 0 {
+		return errors.New("error: biaya harus > 0")
 	}
-	fmt.Printf("Success: Membayar %d menggunakan Bank Transfer\n", b.Jumlah)
+	fmt.Printf("Berhasil: Membayar %.2f menggunakan Bank\n", amount)
 	return nil
+}
+
+// OnlinePayment mengimplementasikan PaymentProcessor untuk simulasi Online.
+type OnlinePayment struct{}
+
+func (o OnlinePayment) Pay(amount float64) error {
+	if amount <= 0 {
+		return errors.New("error: biaya harus > 0")
+	}
+	fmt.Printf("Berhasil: Membayar %.2f menggunakan Online Gateway\n", amount)
+	return nil
+}
+
+// FictivePayment mengimplementasikan penyimpanan ke slice.
+type FictivePayment struct {
+	History []float64
+}
+
+func (f *FictivePayment) Pay(amount float64) error {
+	if amount <= 0 {
+		return errors.New("error: biaya pembayaran harus > 0")
+	}
+	f.History = append(f.History, amount)
+	return nil
+}
+
+// CheckoutSystem hanya peduli pada interface PaymentProcessor.
+type CheckoutSystem struct {
+	Processor PaymentProcessor
+}
+
+func (c *CheckoutSystem) ExecuteCheckout(amounts []float64) {
+	for _, amount := range amounts {
+		err := c.Processor.Pay(amount)
+		if err != nil {
+			fmt.Println(err)
+		}
+	}
 }
